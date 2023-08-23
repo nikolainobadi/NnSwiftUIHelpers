@@ -64,7 +64,7 @@ struct MyListView: View {
     
     var body: some View {
         List(items) { item in
-            ItemRow(item)
+            ItemRow(item: item)
         }
         .withEmptyListView(listEmpty: items.isEmpty, title: "No Items", message: "Please add some items to your list.")
     }
@@ -84,6 +84,40 @@ struct MyListView: View {
         }
         .modal(isPresented: $showingAlert, width: 300, height: 400, backgroundColor: .white, cornerRadius: 20) {
             // your modal view (no navigation stack required to show over current view)
+        }
+    }
+}
+```
+
+### Item Modal View
+
+Presents a modal view conditionally (based on Hashable?) with customizable dimensions, background color, and corner radius WITHOUT requiring an additional ViewController to be pushed on the navigation stack (unlike .sheet).
+```swift
+struct MyListView: View {
+    @State private var selectedItem: MyItem?
+    
+    var body: some View {
+        Vstack {
+            // subviews
+        }
+        .modal(item: $selectedItem, width: 300, height: 400, backgroundColor: .white, cornerRadius: 20) {
+            // your modal view (no navigation stack required to show over current view)
+        }
+    }
+}
+```
+
+### Conditional Navigation Link
+
+Conditionally wraps view in a NavigationLink
+```swift
+struct MyListView: View {
+    let list: [MyItem]
+    
+    var body: some View {
+        List(list) { item in
+            ItemRow(item: item)
+                .asNavLink(item, isActive: item.canEdit)
         }
     }
 }

@@ -8,11 +8,17 @@
 import SwiftUI
 
 public extension Image {
-    init(name: String, isSystem: Bool) {
-        if isSystem {
-            self.init(systemName: name)
-        } else {
-            self.init(name)
+    enum ImageType {
+        case system(String)
+        case media(String, Bundle?)
+    }
+    
+    init(imageType: ImageType) {
+        switch imageType {
+        case .system(let imageName):
+            self.init(systemName: imageName)
+        case .media(let imageName, let bundle):
+            self.init(imageName, bundle: bundle)
         }
     }
 }

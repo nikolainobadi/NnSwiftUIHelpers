@@ -20,8 +20,8 @@ dependencies: [
 
 ## Usage
 
-- **[Extensions](./Sources/NnSwiftUIHelpers/Extensions/README.md)**: Extending functionalities such as Array, Date, DispatchQueue, Publisher, String, View.
-- **[View Modifiers](./Sources/NnSwiftUIHelpers/ViewModifiers/README.md)**: A collection of view modifiers for SwiftUI development.
+- **[Extensions](./Sources/Extensions/README.md)**: Extending functionalities such as Array, Date, DispatchQueue, Publisher, String, View.
+- **[View Modifiers](./Sources/ViewModifiers/README.md)**: A collection of view modifiers for SwiftUI development.
 
 ## License
 

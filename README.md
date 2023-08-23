@@ -5,11 +5,11 @@ NnSwiftUIHelpers is a collection of Swift extensions, view modifiers, and utilit
 ## Table of Contents
 1. [Installation](#installation)
 2. [Usage](#usage)
-   1. [Enums](./documentation/enums.md)
-   2. [Extensions](./documentation/extensions.md)
-   3. [View Modifiers](./documentation/view_modifiers.md)
-3. [Contributing](./documentation/contributing.md)
-4. [License](#license)
+   1. [Enums](./Sources/NnSwiftUIHelpers/Enums/README.md)
+   2. [Extensions](./Sources/NnSwiftUIHelpers/Extensions/README.md)
+   3. [View Modifiers](./Sources/NnSwiftUIHelpers/ViewModifiers/README.md) 
+3. [License](#license)
+
 
 ## Installation
 

@@ -5,15 +5,13 @@ NnSwiftUIHelpers is a collection of Swift extensions, view modifiers, and utilit
 ## Table of Contents
 1. [Installation](#installation)
 2. [Usage](#usage)
-   1. [Enums](./Sources/NnSwiftUIHelpers/Enums/README.md)
-   2. [Extensions](./Sources/NnSwiftUIHelpers/Extensions/README.md)
-   3. [View Modifiers](./Sources/NnSwiftUIHelpers/ViewModifiers/README.md) 
+   1. [Extensions](./Sources/NnSwiftUIHelpers/Extensions/README.md)
+   2. [View Modifiers](./Sources/NnSwiftUIHelpers/ViewModifiers/README.md)
 3. [License](#license)
-
 
 ## Installation
 
-You can add NnSwiftUIHelpers to your project by including it in your Package.swift file:
+You can add NnSwiftUIHelpers to your project by including it in your Package.swift file.
 ```swift
 dependencies: [
     .package(url: "URL_TO_YOUR_PACKAGE", from: "VERSION")
@@ -22,9 +20,8 @@ dependencies: [
 
 ## Usage
 
-- **[Enums](./documentation/enums.md)**: Enumerations for handling various cases.
-- **[Extensions](./documentation/extensions.md)**: Extending functionalities such as Array, Date, DispatchQueue, Publisher, String, View.
-- **[View Modifiers](./documentation/view_modifiers.md)**: A collection of view modifiers for SwiftUI development.
+- **[Extensions](./Sources/NnSwiftUIHelpers/Extensions/README.md)**: Extending functionalities such as Array, Date, DispatchQueue, Publisher, String, View.
+- **[View Modifiers](./Sources/NnSwiftUIHelpers/ViewModifiers/README.md)**: A collection of view modifiers for SwiftUI development.
 
 ## License
 

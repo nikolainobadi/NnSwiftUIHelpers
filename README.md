@@ -10,8 +10,20 @@ NnSwiftUIHelpers is a collection of Swift extensions, view modifiers, and utilit
 3. [License](#license)
 
 ## Installation
+To add the `NnSwiftUIHelpers` package to your Swift project, follow these steps:
 
-You can add NnSwiftUIHelpers to your project by including it in your Package.swift file.
+1. **Open Your Project in Xcode**: Launch your project in Xcode.
+2. **Navigate to the Project Settings**: Select your project in the Project Navigator, then click on your target and navigate to the "Swift Packages" tab.
+3. **Add a New Swift Package**: Click the "+" button to add a new Swift Package.
+4. **Enter the Package Repository URL**: Paste the following URL into the repository URL text field:
+```
+https://github.com/nikolainobadi/NnSwiftUIHelpers
+```
+
+5. **Choose Package Options**: Select the version rules you'd like to adhere to. If you want to use version 1.0.0 or above, you can set the version requirements accordingly.
+6. **Add the Package**: Click "Next" and "Finish" to complete the addition of the package to your project.
+
+Alternatively, if you're managing your project with a `Package.swift` file, you can manually add the dependency by including the following line in the `dependencies` array:
 ```swift
 dependencies: [
     .package(url: "https://github.com/nikolainobadi/NnSwiftUIHelpers", from: "1.0.0")

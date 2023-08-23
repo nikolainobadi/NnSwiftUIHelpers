@@ -17,4 +17,3 @@ public extension View {
     /// Percent required in parameter is direct representation. Example: 1% of height = getHeightPercent(1). 10% of height = getHeightPercent(10)
     func getHeightPercent(_ percent: CGFloat) -> CGFloat { screenHeight * (percent * 0.01) }
 }
-

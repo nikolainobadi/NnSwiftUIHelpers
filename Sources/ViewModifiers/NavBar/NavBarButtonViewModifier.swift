@@ -10,6 +10,8 @@ import SwiftUI
 public struct NavBarButtonViewModifier: ViewModifier {
     let placement: ToolbarItemPlacement
     let buttonContent: NavBarButtonContent
+    let font: Font
+    let textColor: Color
     let action: () -> Void
     
     public enum NavBarButtonContent {
@@ -25,8 +27,12 @@ public struct NavBarButtonViewModifier: ViewModifier {
                         switch buttonContent {
                         case .image(let imageName):
                             Image(systemName: imageName)
+                                .font(font)
+                                .foregroundColor(textColor)
                         case .text(let buttonText):
                             Text(buttonText)
+                                .font(font)
+                                .foregroundColor(textColor)
                         }
                     }
                 }
@@ -35,7 +41,7 @@ public struct NavBarButtonViewModifier: ViewModifier {
 }
 
 public extension View {
-    func withNavBarButton(placement: ToolbarItemPlacement = .navigationBarTrailing, buttonContent: NavBarButtonViewModifier.NavBarButtonContent, action: @escaping () -> Void) -> some View {
-        modifier(NavBarButtonViewModifier(placement: placement, buttonContent: buttonContent, action: action))
+    func withNavBarButton(placement: ToolbarItemPlacement = .navigationBarTrailing, buttonContent: NavBarButtonViewModifier.NavBarButtonContent, font: Font = .title, textColor: Color = .primary, action: @escaping () -> Void) -> some View {
+        modifier(NavBarButtonViewModifier(placement: placement, buttonContent: buttonContent, font: font, textColor: textColor, action: action))
     }
 }

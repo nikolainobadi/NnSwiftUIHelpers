@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "NnSwiftUIHelpers",
+    platforms: [.iOS(.v15)],
     products: [
         .library(
             name: "NnSwiftUIHelpers",
@@ -14,6 +15,8 @@ let package = Package(
     targets: [
         .target(
             name: "NnSwiftUIHelpers",
-            dependencies: []),
+            dependencies: [],
+            path: "Sources"
+        ),
     ]
 )

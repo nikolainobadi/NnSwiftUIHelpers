@@ -126,10 +126,17 @@ struct MyView: View {
     @State private var path = NavigationPath()
     
     var body: some View {
-        Vstack {
-            // subviews
+        TabView { 
+            FirstView()
+                .tag(1)
+                .withNavStack(path: $path, title: .text("Title")) // must be LAST modifier on view
+                
+            SecondView()
+                .tag(2)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .withNavBarButton(placement: .navigationBarTrailing, buttonContent: .image("plus"), action: { /* Your action code here */ })
+                .withNavStack(path: $path, title: .header(NavHeaderView())) // must be LAST modifier on view
         }
-        .withNavStack(path: $path, title: .left("Title"))
     }
 }
 ```

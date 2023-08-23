@@ -10,16 +10,21 @@ import SwiftUI
 @available(iOS 16.0, *)
 public struct NavigationStackViewModifier<Header: View>: ViewModifier {
     @Binding var path: NavigationPath
+    
+    public enum NavTitle {
+        case text(String)
+        case header(Header)
+    }
 
-    let title: Either<String, Header>
+    let title: NavTitle
 
     public func body(content: Content) -> some View {
         NavigationStack(path: $path) {
             switch title {
-            case .left(let string):
+            case .text(let string):
                 content
                     .navigationTitle(string)
-            case .right(let header):
+            case .header(let header):
                 content
                     .withNavTitle(header)
             }
@@ -29,8 +34,7 @@ public struct NavigationStackViewModifier<Header: View>: ViewModifier {
 
 @available(iOS 16.0, *)
 public extension View {
-    func withNavStack<Header: View>(path: Binding<NavigationPath> = .constant(NavigationPath()), title: Either<String, Header>) -> some View {
-        modifier(NavigationStackViewModifier(path: path, title: title))
+    func withNavStack<Header: View>(path: Binding<NavigationPath> = .constant(NavigationPath()), title: NavigationStackViewModifier<Header>.NavTitle) -> some View {
+        self.modifier(NavigationStackViewModifier(path: path, title: title))
     }
 }
-

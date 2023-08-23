@@ -14,7 +14,7 @@ NnSwiftUIHelpers is a collection of Swift extensions, view modifiers, and utilit
 You can add NnSwiftUIHelpers to your project by including it in your Package.swift file.
 ```swift
 dependencies: [
-    .package(url: "URL_TO_YOUR_PACKAGE", from: "VERSION")
+    .package(url: "https://github.com/nikolainobadi/NnSwiftUIHelpers", from: "1.0.0")
 ]
 ```
 

@@ -1,4 +1,4 @@
-# View Modifiers - Conditionals
+# View Modifiers
 
 This document describes the conditional view modifiers provided in this package. These modifiers allow developers to conditionally apply modifications to SwiftUI views.
 

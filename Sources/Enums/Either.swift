@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Either<L, R> {
+public enum Either<L, R> {
     case left(L)
     case right(R)
 }

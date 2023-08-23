@@ -7,17 +7,17 @@
 
 import SwiftUI
 
-struct NavBarButtonViewModifier: ViewModifier {
+public struct NavBarButtonViewModifier: ViewModifier {
     let placement: ToolbarItemPlacement
     let buttonContent: NavBarButtonContent
     let action: () -> Void
     
-    enum NavBarButtonContent {
+    public enum NavBarButtonContent {
         case image(String)
         case text(String)
     }
     
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: placement) {
@@ -34,7 +34,7 @@ struct NavBarButtonViewModifier: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func withNavBarButton(placement: ToolbarItemPlacement = .navigationBarTrailing, buttonContent: NavBarButtonViewModifier.NavBarButtonContent, action: @escaping () -> Void) -> some View {
         modifier(NavBarButtonViewModifier(placement: placement, buttonContent: buttonContent, action: action))
     }

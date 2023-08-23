@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct NavTitleViewModifier<TitleView: View>: ViewModifier {
+public struct NavTitleViewModifier<TitleView: View>: ViewModifier {
     let titleView: TitleView
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: .principal) { titleView }
@@ -18,7 +18,7 @@ struct NavTitleViewModifier<TitleView: View>: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func withNavTitle<TitleView: View>(_ titleView: TitleView) -> some View {
         self.modifier(NavTitleViewModifier(titleView: titleView))
     }

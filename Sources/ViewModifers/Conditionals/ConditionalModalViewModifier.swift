@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
+public struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
     @Binding var isPresented: Bool
     
     let width: CGFloat
@@ -16,7 +16,7 @@ struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
     let cornerRadius: CGFloat
     let modal: Modal
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         ZStack {
             content
 
@@ -48,7 +48,7 @@ struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
     }
 }
 
-extension View {
+public extension View {
     func modal<Modal: View>(isPresented: Binding<Bool>, width: CGFloat = 300, height: CGFloat = 500, backgroundColor: Color = Color(uiColor: .systemBackground), cornerRadius: CGFloat = 20, @ViewBuilder modal: () -> Modal) -> some View {
         
         self.modifier(ConditionalModalViewModifier(isPresented: isPresented, width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius, modal: modal()))

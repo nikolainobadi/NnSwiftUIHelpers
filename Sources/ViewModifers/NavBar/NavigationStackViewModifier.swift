@@ -8,12 +8,12 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
-struct NavigationStackViewModifier<Header: View>: ViewModifier {
+public struct NavigationStackViewModifier<Header: View>: ViewModifier {
     @Binding var path: NavigationPath
 
     let title: Either<String, Header>
 
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         NavigationStack(path: $path) {
             switch title {
             case .left(let string):
@@ -28,7 +28,7 @@ struct NavigationStackViewModifier<Header: View>: ViewModifier {
 }
 
 @available(iOS 16.0, *)
-extension View {
+public extension View {
     func withNavStack<Header: View>(path: Binding<NavigationPath> = .constant(NavigationPath()), title: Either<String, Header>) -> some View {
         modifier(NavigationStackViewModifier(path: path, title: title))
     }

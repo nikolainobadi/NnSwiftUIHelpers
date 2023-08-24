@@ -34,7 +34,12 @@ public struct NavigationStackViewModifier<Header: View>: ViewModifier {
 
 @available(iOS 16.0, *)
 public extension View {
-    func withNavStack<Header: View>(path: Binding<NavigationPath> = .constant(NavigationPath()), title: NavigationStackViewModifier<Header>.NavTitle) -> some View {
+    func withNavStack(path: Binding<NavigationPath> = .constant(NavigationPath()), title: NavigationStackViewModifier<Text>.NavTitle) -> some View {
+        self.modifier(NavigationStackViewModifier(path: path, title: title))
+    }
+
+    func withNavStack<Header: View>(path: Binding<NavigationPath> = .constant(NavigationPath()), title: NavigationStackViewModifier<Header>.NavTitle, header: Header) -> some View {
         self.modifier(NavigationStackViewModifier(path: path, title: title))
     }
 }
+

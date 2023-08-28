@@ -45,6 +45,7 @@ public struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
                 .cornerRadius(cornerRadius)
             }
         }
+        .padding(.horizontal)
     }
 }
 
@@ -54,6 +55,3 @@ public extension View {
         self.modifier(ConditionalModalViewModifier(isPresented: isPresented, width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius, modal: modal()))
     }
 }
-
-
-

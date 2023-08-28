@@ -27,22 +27,19 @@ public struct ItemModelViewModifier<Item: Identifiable & Hashable, Modal: View>:
                         self.item = nil
                     }
 
-                VStack(spacing: 0) {
-                    HStack {
-                        Spacer()
+                modal(item)
+                    .frame(width: width, height: height)
+                    .background(backgroundColor)
+                    .cornerRadius(cornerRadius)
+                    .overlay(alignment: .topTrailing) {
                         Button(action: { self.item = nil }) {
                             Image(systemName: "xmark")
                                 .padding()
                                 .font(.title)
                                 .foregroundColor(.black)
                         }
+                        .padding()
                     }
-
-                    modal(item)
-                }
-                .frame(width: width, height: height)
-                .background(backgroundColor)
-                .cornerRadius(cornerRadius)
             }
         }
     }

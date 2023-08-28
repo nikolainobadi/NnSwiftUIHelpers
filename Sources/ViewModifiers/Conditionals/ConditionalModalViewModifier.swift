@@ -27,22 +27,19 @@ public struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
                         isPresented = false
                     }
 
-                VStack(spacing: 0) {
-                    HStack {
-                        Spacer()
+                modal
+                    .frame(width: width, height: height)
+                    .background(backgroundColor)
+                    .cornerRadius(cornerRadius)
+                    .overlay(alignment: .topTrailing) {
                         Button(action: { isPresented = false }) {
                             Image(systemName: "xmark")
                                 .padding()
                                 .font(.title)
                                 .foregroundColor(.black)
                         }
+                        .padding()
                     }
-                    
-                    modal
-                }
-                .frame(width: width, height: height)
-                .background(backgroundColor)
-                .cornerRadius(cornerRadius)
             }
         }
         .padding(.horizontal)

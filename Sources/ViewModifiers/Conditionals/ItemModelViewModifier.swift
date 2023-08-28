@@ -46,8 +46,8 @@ public struct ItemModelViewModifier<Item: Identifiable & Hashable, Modal: View>:
 }
 
 public extension View {
-    func modal<Item: Identifiable & Hashable, Modal: View>(item: Binding<Item?>, width: CGFloat = 300, height: CGFloat = 500, backgroundColor: Color = Color(uiColor: .systemBackground), cornerRadius: CGFloat = 20, @ViewBuilder modal: @escaping (Item) -> Modal) -> some View {
+    func modal<Item: Identifiable & Hashable, Modal: View>(item: Binding<Item?>, width: CGFloat? = nil, height: CGFloat? = nil, backgroundColor: Color = Color(uiColor: .systemBackground), cornerRadius: CGFloat = 20, @ViewBuilder modal: @escaping (Item) -> Modal) -> some View {
         
-        self.modifier(ItemModelViewModifier(item: item, width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius, modal: modal))
+        self.modifier(ItemModelViewModifier(item: item, width: width ?? getWidthPercent(90), height: height ?? getHeightPercent(50), backgroundColor: backgroundColor, cornerRadius: cornerRadius, modal: modal))
     }
 }

@@ -9,17 +9,28 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 public struct NavigationStackViewModifier: ViewModifier {
-    @Binding var path: NavigationPath
+    var path: Binding<NavigationPath>?
     
     let title: String?
 
     public func body(content: Content) -> some View {
-        NavigationStack(path: $path) {
-            if let title = title {
-                content
-                    .navigationTitle(title)
-            } else {
-                content
+        if let pathBinding = path {
+            NavigationStack(path: pathBinding) {
+                if let title = title {
+                    content
+                        .navigationTitle(title)
+                } else {
+                    content
+                }
+            }
+        } else {
+            NavigationStack {
+                if let title = title {
+                    content
+                        .navigationTitle(title)
+                } else {
+                    content
+                }
             }
         }
     }
@@ -27,7 +38,7 @@ public struct NavigationStackViewModifier: ViewModifier {
 
 @available(iOS 16.0, *)
 public extension View {
-    func withNavStack(path: Binding<NavigationPath> = .constant(NavigationPath()), title: String? = nil) -> some View {
+    func withNavStack(path: Binding<NavigationPath>? = nil, title: String? = nil) -> some View {
         self.modifier(NavigationStackViewModifier(path: path, title: title))
     }
 }

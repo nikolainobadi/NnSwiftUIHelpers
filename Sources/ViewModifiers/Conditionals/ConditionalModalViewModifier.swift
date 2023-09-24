@@ -42,13 +42,12 @@ public struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
                     }
             }
         }
-        .padding(.horizontal)
     }
 }
 
 public extension View {
-    func modal<Modal: View>(isPresented: Binding<Bool>, width: CGFloat = 300, height: CGFloat = 500, backgroundColor: Color = Color(uiColor: .systemBackground), cornerRadius: CGFloat = 20, @ViewBuilder modal: () -> Modal) -> some View {
+    func modal<Modal: View>(isPresented: Binding<Bool>, width: CGFloat? = nil, height: CGFloat? = nil, backgroundColor: Color = Color(uiColor: .systemBackground), cornerRadius: CGFloat = 20, @ViewBuilder modal: () -> Modal) -> some View {
         
-        self.modifier(ConditionalModalViewModifier(isPresented: isPresented, width: width, height: height, backgroundColor: backgroundColor, cornerRadius: cornerRadius, modal: modal()))
+        self.modifier(ConditionalModalViewModifier(isPresented: isPresented, width: width ?? getWidthPercent(90), height: height ?? getHeightPercent(50), backgroundColor: backgroundColor, cornerRadius: cornerRadius, modal: modal()))
     }
 }

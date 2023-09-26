@@ -7,19 +7,16 @@
 
 import SwiftUI
 
-public struct NavBarButtonViewModifier: ViewModifier {
+struct NavBarButtonViewModifier: ViewModifier {
     let placement: ToolbarItemPlacement
     let buttonContent: NavBarButtonContent
     let font: Font
     let textColor: Color
     let action: () -> Void
     
-    public enum NavBarButtonContent {
-        case image(String)
-        case text(String)
-    }
     
-    public func body(content: Content) -> some View {
+    
+    func body(content: Content) -> some View {
         content
             .toolbar {
                 ToolbarItem(placement: placement) {
@@ -41,7 +38,14 @@ public struct NavBarButtonViewModifier: ViewModifier {
 }
 
 public extension View {
-    func withNavBarButton(placement: ToolbarItemPlacement = .navigationBarTrailing, buttonContent: NavBarButtonViewModifier.NavBarButtonContent, font: Font = .title2, textColor: Color = .primary, action: @escaping () -> Void) -> some View {
+    func withNavBarButton(placement: ToolbarItemPlacement = .navigationBarTrailing, buttonContent: NavBarButtonContent, font: Font = .title2, textColor: Color = .primary, action: @escaping () -> Void) -> some View {
         modifier(NavBarButtonViewModifier(placement: placement, buttonContent: buttonContent, font: font, textColor: textColor, action: action))
     }
+}
+
+
+// MARK: - Dependencies
+public enum NavBarButtonContent {
+    case text(String)
+    case image(String)
 }

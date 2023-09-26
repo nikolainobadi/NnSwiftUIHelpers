@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
+struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
     @Binding var isPresented: Bool
     
     let width: CGFloat
@@ -16,7 +16,7 @@ public struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
     let cornerRadius: CGFloat
     let modal: Modal
 
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         ZStack {
             content
 

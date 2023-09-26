@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-public struct ConditionalEmptyListViewModifier: ViewModifier {
+struct ConditionalEmptyListViewModifier: ViewModifier {
     let listEmpty: Bool
     let title: String
     let message: String
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         if listEmpty {
             VStack {
                 VStack(spacing: 15) {

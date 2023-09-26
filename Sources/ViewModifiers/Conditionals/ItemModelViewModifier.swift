@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct ItemModelViewModifier<Item: Identifiable & Hashable, Modal: View>: ViewModifier {
+struct ItemModelViewModifier<Item: Identifiable & Hashable, Modal: View>: ViewModifier {
     @Binding var item: Item?
     
     let width: CGFloat
@@ -16,7 +16,7 @@ public struct ItemModelViewModifier<Item: Identifiable & Hashable, Modal: View>:
     let cornerRadius: CGFloat
     let modal: (Item) -> Modal
 
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         ZStack {
             content
 

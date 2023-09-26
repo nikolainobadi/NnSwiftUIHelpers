@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-public struct ConditionalDisplayViewModifier: ViewModifier {
+struct ConditionalDisplayViewModifier: ViewModifier {
     let conditional: Bool
 
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         if conditional {
             content
         }

@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-public struct FrameByScreenPercentageViewModifier: ViewModifier {
+struct FrameByScreenPercentageViewModifier: ViewModifier {
     let width: CGFloat
     let height: CGFloat
     let alignment: Alignment
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         content
             .frame(maxWidth: width, maxHeight: height, alignment: alignment)
     }

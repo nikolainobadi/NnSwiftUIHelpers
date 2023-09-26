@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-public struct CustomFontViewModifier: ViewModifier {
+struct CustomFontViewModifier: ViewModifier {
     let font: Font
     let textColor: Color
     let autoSize: Bool
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         content
             .font(font)
             .foregroundColor(textColor)

@@ -7,12 +7,12 @@
 
 import SwiftUI
 
-public struct ConditionalBorderOverlayViewModifier: ViewModifier {
+struct ConditionalBorderOverlayViewModifier: ViewModifier {
     let color: Color
     let showOverlay: Bool
     let cornerRadius: CGFloat
     
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         content
             .overlay(
                 VStack {

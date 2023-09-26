@@ -8,12 +8,12 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
-public struct NavigationStackViewModifier: ViewModifier {
+struct NavigationStackViewModifier: ViewModifier {
     var path: Binding<NavigationPath>?
     
     let title: String?
 
-    public func body(content: Content) -> some View {
+    func body(content: Content) -> some View {
         if let pathBinding = path {
             NavigationStack(path: pathBinding) {
                 if let title = title {

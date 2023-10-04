@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct ItemModelViewModifier<Item: Identifiable & Hashable, Modal: View>: ViewModifier {
     @Binding var item: Item?
     
@@ -45,6 +46,7 @@ struct ItemModelViewModifier<Item: Identifiable & Hashable, Modal: View>: ViewMo
     }
 }
 
+@available(iOS 15.0, *)
 public extension View {
     func modal<Item: Identifiable & Hashable, Modal: View>(item: Binding<Item?>, width: CGFloat? = nil, height: CGFloat? = nil, backgroundColor: Color = Color(uiColor: .systemBackground), cornerRadius: CGFloat = 20, @ViewBuilder modal: @escaping (Item) -> Modal) -> some View {
         

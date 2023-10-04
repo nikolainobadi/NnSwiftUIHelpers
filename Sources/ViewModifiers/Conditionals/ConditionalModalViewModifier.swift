@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
     @Binding var isPresented: Bool
     
@@ -45,6 +46,8 @@ struct ConditionalModalViewModifier<Modal: View>: ViewModifier {
     }
 }
 
+
+@available(iOS 15.0, *)
 public extension View {
     func modal<Modal: View>(isPresented: Binding<Bool>, width: CGFloat? = nil, height: CGFloat? = nil, backgroundColor: Color = Color(uiColor: .systemBackground), cornerRadius: CGFloat = 20, @ViewBuilder modal: () -> Modal) -> some View {
         

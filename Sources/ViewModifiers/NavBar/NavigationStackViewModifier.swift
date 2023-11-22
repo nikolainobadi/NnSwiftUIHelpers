@@ -12,6 +12,8 @@ struct NavigationStackViewModifier: ViewModifier {
     var path: Binding<NavigationPath>?
     
     let title: String?
+    let tint: Color
+    let backgroundColor: Color?
 
     func body(content: Content) -> some View {
         if let pathBinding = path {
@@ -23,6 +25,9 @@ struct NavigationStackViewModifier: ViewModifier {
                     content
                 }
             }
+            .tint(tint)
+            .toolbarBackground(backgroundColor == nil ? .automatic : .visible, for: .navigationBar)
+            .toolbarBackground(backgroundColor == nil ? Color.clear : backgroundColor!, for: .navigationBar)
         } else {
             NavigationStack {
                 if let title = title {
@@ -32,13 +37,16 @@ struct NavigationStackViewModifier: ViewModifier {
                     content
                 }
             }
+            .tint(tint)
+            .toolbarBackground(backgroundColor == nil ? .automatic : .visible, for: .navigationBar)
+            .toolbarBackground(backgroundColor == nil ? Color.clear : backgroundColor!, for: .navigationBar)
         }
     }
 }
 
 @available(iOS 16.0, *)
 public extension View {
-    func withNavStack(path: Binding<NavigationPath>? = nil, title: String? = nil) -> some View {
-        self.modifier(NavigationStackViewModifier(path: path, title: title))
+    func withNavStack(path: Binding<NavigationPath>? = nil, title: String? = nil, tint: Color = .blue, backgroundColor: Color? = nil) -> some View {
+        self.modifier(NavigationStackViewModifier(path: path, title: title, tint: tint, backgroundColor: backgroundColor))
     }
 }

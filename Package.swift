@@ -9,7 +9,6 @@ let package = Package(
     products: [
         .library(
             name: "NnSwiftUIHelpers",
-            type: .dynamic,
             targets: ["NnSwiftUIHelpers"]),
     ],
     dependencies: [],

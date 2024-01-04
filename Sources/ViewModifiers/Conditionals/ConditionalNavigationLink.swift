@@ -8,7 +8,6 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
-@available(macOS 13.0, *)
 struct ConditionalNavigationLink<D: Hashable>: ViewModifier {
     let data: D
     let isActive: Bool
@@ -25,7 +24,6 @@ struct ConditionalNavigationLink<D: Hashable>: ViewModifier {
 }
 
 @available(iOS 16.0, *)
-@available(macOS 13.0, *)
 public extension View {
     func asNavLink<D: Hashable>(_ data: D, isActive: Bool = true) -> some View {
         modifier(ConditionalNavigationLink(data: data, isActive: isActive))

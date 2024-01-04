@@ -1,6 +1,6 @@
 //
-//  File.swift
-//  
+//  DelayedOnAppearViewModifier.swift
+//
 //
 //  Created by Nikolai Nobadi on 1/2/24.
 //

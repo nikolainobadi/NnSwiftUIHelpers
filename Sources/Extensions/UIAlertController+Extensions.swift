@@ -5,6 +5,7 @@
 //  Created by Nikolai Nobadi on 8/23/23.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 public extension UIAlertController {
@@ -20,3 +21,4 @@ public extension UIAlertController {
         }
     }
 }
+#endif

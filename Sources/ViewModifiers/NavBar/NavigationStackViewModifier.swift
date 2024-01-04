@@ -8,6 +8,7 @@
 import SwiftUI
 
 @available(iOS 16.0, *)
+@available(macOS 13.0, *)
 struct NavigationStackViewModifier: ViewModifier {
     var path: Binding<NavigationPath>?
     
@@ -37,6 +38,7 @@ struct NavigationStackViewModifier: ViewModifier {
 }
 
 @available(iOS 16.0, *)
+@available(macOS 13.0, *)
 public extension View {
     func withNavStack(path: Binding<NavigationPath>? = nil, title: String? = nil) -> some View {
         self.modifier(NavigationStackViewModifier(path: path, title: title))

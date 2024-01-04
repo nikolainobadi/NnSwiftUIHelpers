@@ -5,6 +5,7 @@
 //  Created by Nikolai Nobadi on 8/23/23.
 //
 
+#if canImport(UIKit)
 import SwiftUI
 
 @available(iOS 15.0, *)
@@ -53,3 +54,4 @@ public extension View {
         self.modifier(ItemModelViewModifier(item: item, width: width ?? getWidthPercent(90), height: height ?? getHeightPercent(50), backgroundColor: backgroundColor, cornerRadius: cornerRadius, modal: modal))
     }
 }
+#endif

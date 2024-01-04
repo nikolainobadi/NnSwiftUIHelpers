@@ -5,6 +5,7 @@
 //  Created by Nikolai Nobadi on 8/23/23.
 //
 
+#if canImport(UIKit)
 import SwiftUI
 
 struct NavBarButtonViewModifier: ViewModifier {
@@ -49,3 +50,4 @@ public enum NavBarButtonContent {
     case text(String)
     case image(String)
 }
+#endif
